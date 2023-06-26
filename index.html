@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaktywny system nauki gry na instrumentach strunowych</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #guitar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    #guitar-svg {
+      margin-bottom: 20px;
+    }
+
+    #tuning-menu {
+      margin-top: 20px;
+    }
+
+    .string-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .string-description {
+      margin-left: 10px;
+    }
+
+    /* Responsywność */
+    @media (min-width: 600px) {
+      #guitar-container {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      #guitar-svg {
+        margin-right: 20px;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interaktywny system nauki gry na instrumentach strunowych</h1>
+  </header>
+
+  <main>
+    <div id="guitar-container">
+      <svg id="guitar-svg" width="600" height="400" viewBox="0 0 600 400">
+        <circle id="guitar-box" cx="300" cy="200" r="180" fill="#deb887" stroke="#333" stroke-width="2" />
+        <line id="string-e" x1="100" y1="100" x2="500" y2="100" stroke="#333" stroke-width="6" />
+        <line id="string-a" x1="100" y1="150" x2="500" y2="150" stroke="#333" stroke-width="5" />
+        <line id="string-d" x1="100" y1="200" x2="500" y2="200" stroke="#333" stroke-width="4" />
+        <line id="string-g" x1="100" y1="250" x2="500" y2="250" stroke="#333" stroke-width="3" />
+        <line id="string-b" x1="100" y1="300" x2="500" y2="300" stroke="#333" stroke-width="2" />
+        <line id="string-e2" x1="100" y1="350" x2="500" y2="350" stroke="#333" stroke-width="1" />
+      </svg>
+      <div>
+        <div id="tuning-menu">
+          <label for="tuning-select">Wybierz strojenie:</label>
+          <select id="tuning-select">
+            <option value="standard">Standard</option>
+            <option value="dropC">Drop C</option>
+            <option value="openD">Open D</option>
+            <option value="openG">Open G</option>
+            <option value="dadgad">DADGAD</option>
+            <option value="dropD">Drop D</option>
+          </select>
+          <button id="apply-tuning-btn">🎸 Zastosuj strojenie</button>
+          <div id="favorite-tuning-form">
+  <label for="favorite-tuning-select">Ulubione strojenie:</label>
+  <select id="favorite-tuning-select">
+    <option value="standard">Standard</option>
+    <option value="dropC">Drop C</option>
+    <option value="openD">Open D</option>
+    <option value="openG">Open G</option>
+    <option value="dadgad">DADGAD</option>
+    <option value="dropD">Drop D</option>
+  </select>
+  <button id="save-favorite-tuning-btn">Zapisz ulubione strojenie</button>
+</div>
+        </div>
+        <div id="string-descriptions">
+          <div class="string-container">
+            <p class="string-description" id="string-e-description"></p>
+          </div>
+          <div class="string-container">
+            <p class="string-description" id="string-a-description"></p>
+          </div>
+          <div class="string-container">
+            <p class="string-description" id="string-d-description"></p>
+          </div>
+          <div class="string-container">
+            <p class="string-description" id="string-g-description"></p>
+          </div>
+          <div class="string-container">
+            <p class="string-description" id="string-b-description"></p>
+          </div>
+          <div class="string-container">
+            <p class="string-description" id="string-e2-description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Kliknij strunę, lub jej opis, aby odtworzyć dźwięk.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
